@@ -1,0 +1,12 @@
+#-------------------------------------
+# To obtain zlib for MingGw :
+# _ Donlowad zlib from http://www.zlib.net/ or from http://www.winimage.com/zLibDll/zlib-1.2.5.tar.gz
+# _ untar zlib-1.2.5.tar.gz
+# _ cd zlib-1.2.5
+# _ in msys perform make -f win32/Makefile.gcc
+# _ Manually copy the files as follows:
+#   _ cp -iv zlib1.dll /mingw/bin
+#   _ cp -iv zconf.h zlib.h /mingw/include
+#   _ cp -iv libz.a libz.dll.a /mingw/lib
+#---------------------------------------
+#EOF
