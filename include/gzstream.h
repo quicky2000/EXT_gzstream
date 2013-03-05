@@ -32,7 +32,11 @@
 // standard C++ with new header file names and std:: namespace
 #include <iostream>
 #include <fstream>
+#ifdef _WIN32
+#include "zlib.h"
+#else
 #include <zlib.h>
+#endif // _WIN32
 
 #ifdef GZSTREAM_NAMESPACE
 namespace GZSTREAM_NAMESPACE {

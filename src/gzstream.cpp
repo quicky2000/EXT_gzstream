@@ -26,7 +26,11 @@
 // Standard C++ Library".
 // ============================================================================
 
+#ifdef _WIN32
+#include "gzstream.h"
+#else
 #include <gzstream.h>
+#endif // _WIN32
 #include <iostream>
 #include <string.h>  // for memcpy
 
