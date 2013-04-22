@@ -67,6 +67,7 @@ public:
     }
     int is_open() { return opened; }
     gzstreambuf* open( const char* name, int open_mode);
+    gzstreambuf* open( int fd, int open_mode);
     gzstreambuf* close();
     ~gzstreambuf() { close(); }
     
@@ -81,8 +82,10 @@ protected:
 public:
     gzstreambase() { init(&buf); }
     gzstreambase( const char* name, int open_mode);
+    gzstreambase(int fd, int open_mode);
     ~gzstreambase();
     void open( const char* name, int open_mode);
+    void open( int fd, int open_mode);
     void close();
     gzstreambuf* rdbuf() { return &buf; }
 };
@@ -98,6 +101,8 @@ public:
     igzstream() : std::istream( &buf) {} 
     igzstream( const char* name, int open_mode = std::ios::in)
         : gzstreambase( name, open_mode), std::istream( &buf) {}  
+    igzstream(int fd, int open_mode = std::ios::in)
+        : gzstreambase(fd, open_mode), std::istream( &buf) {}  
     gzstreambuf* rdbuf() { return gzstreambase::rdbuf(); }
     void open( const char* name, int open_mode = std::ios::in) {
         gzstreambase::open( name, open_mode);
